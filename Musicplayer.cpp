@@ -150,8 +150,9 @@ void use_menu(list<Song>::iterator& current_song, list<Song>& playlist, ofstream
                 }
             } while (true);
             //playlist.push_back(Song{ song_name, song_artist, song_rating });
-            playlist.emplace_back(song_name, song_artist, song_rating);
-            current_song = --playlist.end();
+            //playlist.emplace_back(song_name, song_artist, song_rating);
+            playlist.insert(current_song, Song{ song_name,song_artist,song_rating });
+            playing_song(*(--current_song));
             break;
         case 'D':
         case 'd':
